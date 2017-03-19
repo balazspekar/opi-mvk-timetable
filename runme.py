@@ -22,7 +22,7 @@ def prettify(schedule):
     return result
 
 if __name__ == '__main__':
-    # screen = LCD()
+    screen = LCD()
     schedule_downtown = Schedule("514")
     # schedule_suburb = Schedule("513")
 
