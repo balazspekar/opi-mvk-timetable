@@ -25,6 +25,15 @@ def prettify(schedule, destination):
 
     return result
 
+
+def add_zero(digit):
+    stringified = str(digit)
+    if len(stringified) > 1:
+        return digit
+    else:
+        return "0" + stringified
+
+
 if __name__ == '__main__':
     screen = LCD()
     schedule_downtown = Schedule("514")
@@ -39,8 +48,8 @@ if __name__ == '__main__':
             screen.lcd_string(prettified_2, 2)
             time.sleep(5)
             current_dt = datetime.datetime.now()
-            screen.lcd_string(str(current_dt.year) + "/" + str(current_dt.month) + "/" + str(current_dt.day), 1)
-            screen.lcd_string(str(current_dt.hour) + ":" + str(current_dt.minute) + " [" + str(requests) + "]", 2)
+            screen.lcd_string(str(current_dt.year) + "/" + add_zero(current_dt.month) + "/" + add_zero(current_dt.day), 1)
+            screen.lcd_string(add_zero(current_dt.hour) + ":" + add_zero(current_dt.minute) + " [" + str(requests) + "]", 2)
             time.sleep(2)
     finally:
         screen.lcd_string("Exited", 1)
