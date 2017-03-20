@@ -29,7 +29,7 @@ def prettify(schedule, destination):
 def add_zero(digit):
     stringified = str(digit)
     if len(stringified) > 1:
-        return digit
+        return str(digit)
     else:
         return "0" + stringified
 
